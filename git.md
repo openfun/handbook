@@ -6,6 +6,10 @@ If you are looking for a good introduction to Git, take a look at the [_Git In P
 
 ## Git conventions
 
+### Commit granularity
+
+We tend to favor low granularity-but-consistent commits to a long series of commit. If you have multiple commits in a feature branch, it means that you had to address multiple issues to achieve your feature. We can run the test suite on every commit and it should always stay green 😎.
+
 ### Commit message
 
 We follow an emoji-driven commit message format adapted from [Angular guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines). A typical commit message should look like:
@@ -46,11 +50,51 @@ The **footer** should contain any information about breaking changes and is also
 
 Breaking changes should start with the word `BREAKING CHANGE`: with a space or two newlines. The rest of the commit message is then used for this.
 
-## Git workflow
+## Git workflows
 
-## Working with GitHub
+We use different workflows to handle collaborative coding with Git. The chosen workflow depends on the context and historical reasons. If you need more insights on popular Git worflows, we invite you to read [this section](https://github.com/GitInPractice/GitInPractice/blob/master/14-RecommendedTeamWorkflows.adoc) of the [Git in Practice](https://github.com/GitInPractice/GitInPractice) book.
 
+### Open-source projects
 
+For the sake of simplicity, to ease interaction with the community, we use the [GitHub flow](https://guides.github.com/introduction/flow/index.html) for open-source projects. In a few words:
+
+* the `master` branch is always stable and deployable,
+* tags from the master branch are considered as releases,
+* contributors have to fork or create a new feature-branch to work on \(if they are allowed to in the original repository\) and propose a pull request to merge their branch to `master`.
+
+### FUN private projects
+
+Historically, we use [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) for internal projects. You will find plenty of resources on the web about this workflow, so in a few words:
+
+* the `master` branch is considered as a stable and always deployable branch,
+* every commit to this branch is tagged,
+* the `develop` branch is a working branch where developped features are merged,
+* contributors have to work on feature-branch that will target the `develop` branch,
+* hotfix and release branches are merged to `master` and back-ported to `develop`.
+
+## Working with forges
+
+### Declaring issues
+
+_For now, new issues are declared in a dedicated Trello board. This is a temporary situation. In the following, we will describe how it should be_ 🤓
+
+When declaring a new issue, please describe as much as possible the **purpose** of your issue, and eventually make a **proposal** on how it should be solved or investigated. Choose wisely a label for this issue and please do not assign someone to it \(unless you already discussed with her verbally and had an agreement\).
+
+### Working with pull requests \(PR\)
+
+We recommend to create a pull request \(PR\) or merge request \(MR\) in GitLab semantic as soon as possible with the `WIP` flag preceding your PR title, _e.g._ `WIP: 😎(docker) add mongo service`.
+
+When your work is done on this PR, remove the `WIP` flag and please ensure that:
+
+* your feature or fix is **tested ** \(all continuous integration tests should be green and code coverage **should not** decrease\),
+* your feature is **documented**,
+* your branch is **up-to-date** with the target branch \(it should be rebased and force-pushed\).
+
+Once all of those requirements are met, ask for a review of your code by assigning maintainers to your PR. Your changes should be approved by **at least one contributor of the core team** to be merged.
+
+Last but not least, a code review should not take more than half an hour per PR to be profitable for everyone. It means that you have anticipated the amount of changes required to achieve your work. If those changes are bigger than 500 lines, then you may consider to split your feature in multiple PRs.
+
+Finally, our PR merging strategy is: **rebase and merge** ; we do not want a merge commit.
 
 
 
