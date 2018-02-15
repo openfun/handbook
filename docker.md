@@ -6,7 +6,9 @@ We extensively use Docker at FUN. Mostly for developement, but also in productio
 
 it is commonly assumed that Docker containers **should not** run commands with a privileged account as the `root` user. So it's a good practice to create and declare a `USER` in your `Dockerfile`. When a docker volume is mounted from the host to a container, you may then encounter permission issues with the container's user trying to create new files on the host volume \(_e.g._ when installing dependencies with _npm_\), and this is a good thing! But it is a bit annoying as it may break your development workflow.
 
-A workaround to solve this issue is to: i. create a new group on your system for those particular users \(we propose to call this group `docker-users`\), ii. create a new user attached to this group on your system \(mapping container user's `uid`\), iii. add your account to the `docker-users` group, and allow the `docker-users` group to write in your project directory. An example for CircleCi containers follows:
+A workaround to solve this issue is to: i. create a new group on your system for the user of your container \(mapping container user primary group's `gid`\), ii. create a new user attached to this group on your system \(mapping container user's `uid`\), iii. add your account to this group, and allow this group to write in your project's tree.
+
+An example for CircleCi containers follows:
 
 ```bash
 # Create a new circleci group
