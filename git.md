@@ -94,7 +94,5 @@ Once all of those requirements are met, ask for a review of your code by assigni
 
 Last but not least, a code review should not take more than half an hour per PR to be profitable for everyone. It means that you have anticipated the amount of changes required to achieve your work. If those changes are bigger than 500 lines, then you may consider to split your feature in multiple PRs.
 
-Finally, our PR merging strategy is: **rebase and merge** ; we do not want a merge commit.
-
-
+Note that the target branch \(`develop` or `master`\) must be write-protected, no one is allowed to push to it. Hence to merge your PR once all tests are green and your changes have been approved. you will need to use the forge UI to proceed. Our PR merging strategy is: **rebase and merge** ; we do not want a merge commit.
 
