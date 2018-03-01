@@ -58,18 +58,18 @@ If your statement is too long, then split your line with one argument per line:
 
 ```py
 my_function(
-    foo, 
-    bar, 
-    baz=None, 
-    spam='YUMMY', 
+    foo,
+    bar,
+    baz=None,
+    spam='YUMMY',
     summary='lorem ipsum',
-    is_fake=True, 
-    verbose=True, 
-    debug=True
+    is_fake=True,
+    verbose=True,
+    debug=True,
 )
 ```
 
-**Pro tip**: to fit with the maximal line length limit for long strings, think tuple!
+**Pro tip**: To fit with the maximal line length limit for long strings, think parentheses!
 
 ```py
 foo = (
@@ -87,7 +87,7 @@ foo = (
 Import statements should respect the following requirements:
 
 * write global import statements first \(`import logging`\) then partial imports \(`from copy import copy`\),
-* import statements should be written in the following order: 1. standard library, 2. third party dependencies, and 3. application modules \(relative imports\); with an empty row between each,
+* import statements should be written in the following order: 1. standard library, 2. Django imports 3. third party dependencies, and 4. application modules \(relative imports\); with an empty row between each,
 * import statements should be sorted alphabetically \(`import bar` is written before `import foo`\),
 * imported objects from a module should also be sorted alphabetically \(`from foo import bar, baz, lol`\).
 
@@ -102,11 +102,9 @@ This is a docstring for my module
 import logging
 import re
 
-import pandas
-
-from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls.base import reverse
 from django.utils import timezone
@@ -117,12 +115,14 @@ from django.views.generic import (
 from django.views.generic.detail import BaseDetailView
 from django.views.generic.edit import FormMixin
 
+import pandas
+
 from apps.core.models import Bar, Foo, Lol
 from .forms import (
-    FooExportForm, BarForm, FooFiltersForm, FooFightersLongForm, FooFightersUserShortForm, 
-    FooFightersBandRegistrationForm, FooSelectForm, 
+    BarForm, FooExportForm, FooFightersBandRegistrationForm, FooFiltersForm,
+    FooFightersLongForm,FooFightersUserShortForm, FooSelectForm
 )
-from .utils import export_foos, export_bars
+from .utils import export_bars, export_foos
 ```
 
 

@@ -1,6 +1,6 @@
 # FUN handbook
 
-In this handbook you will find best practices we introduced at [FUN](https://www.fun-mooc.fr) \(France Université Numérique\); it is mainly focused on technical considerations of FUN's mission, _i.e. _ how we code collaboratively, how we communicate with remote worker, etc.
+In this handbook you will find best practices we introduced at [FUN](https://www.fun-mooc.fr) \(France Université Numérique\); it is mainly focused on technical considerations of FUN's mission, _i.e._ how we code collaboratively, how we communicate with remote workers, etc.
 
 
 

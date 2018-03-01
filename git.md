@@ -22,7 +22,7 @@ We follow an emoji-driven commit message format adapted from [Angular guidelines
 <footer>
 ```
 
-Where **type** must one of the following:
+Where **type** must be one of the following:
 
 * 👷‍♀ \(_aka_ **build**\): changes that affect the build system or external dependencies \(example scopes: pip, npm, docker\)
 * ⛑ \(_aka_ **ci**\): changes to our CI configuration files and scripts \(example scopes: Circle, GitLab\)
@@ -30,7 +30,7 @@ Where **type** must one of the following:
 * 😎 \(_aka_ **feat**\): a new feature
 * ✌️ \(_aka_ **fix**\): a bug fix
 * 👩‍🏭 \(_aka_ **refactor**\): a code change that neither fixes a bug nor adds a feature
-* 👩‍🎨 \(_aka_ **style**\): changes that do not affect the meaning of the code \(white-space, formatting, missing semi-colons, etc\)
+* 👩‍🎨 \(_aka_ **style**\): changes that do not affect the meaning of the code \(white-space, formatting, missing semi-colons, etc.\)
 
 And the **scope** should point to the django application or stack component that may be affected, _e.g._:
 
@@ -44,9 +44,9 @@ The **subject** contains succinct description of the change:
 * don't capitalize first letter
 * no dot \(.\) at the end
 
-Just as in the subject, use the imperative, present tense for the **body**: "change" not "changed" nor "changes". The body should include the motivation for the change and contrast this with previous behavior.
+Just as in the subject, use the imperative, present tense for the **body**: "change" not "changed" nor "changes". The body should include the motivation for the change and contrast this with the previous behavior.
 
-The **footer** should contain any information about breaking changes and is also the place to reference GitHub/GitLab issues that this commit Closes.
+The **footer** should contain any information about breaking changes and is also the place to reference GitHub/GitLab issues that this commit closes.
 
 Breaking changes should start with the word `BREAKING CHANGE`: with a space or two newlines. The rest of the commit message is then used for this.
 
@@ -67,10 +67,10 @@ For the sake of simplicity, to ease interaction with the community, we use the [
 Historically, we use [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/) for internal projects. You will find plenty of resources on the web about this workflow, so in a few words:
 
 * the `master` branch is considered as a stable and always deployable branch,
-* every commit to this branch is tagged,
 * the `develop` branch is a working branch where developped features are merged,
 * contributors have to work on feature-branch that will target the `develop` branch,
-* hotfix and release branches are merged to `master` and back-ported to `develop`.
+* hotfix and release branches are merged to `master` and back-ported to `develop`,
+* release branches create tags on the master branch when they are closed.
 
 ## Working with forges
 
@@ -94,5 +94,5 @@ Once all of those requirements are met, ask for a review of your code by assigni
 
 Last but not least, a code review should not take more than half an hour per PR to be profitable for everyone. It means that you have anticipated the amount of changes required to achieve your work. If those changes are bigger than 500 lines, then you may consider to split your feature in multiple PRs.
 
-Note that the target branch \(`develop` or `master`\) must be write-protected, no one is allowed to push to it. Hence to merge your PR once all tests are green and your changes have been approved. you will need to use the forge UI to proceed. Our PR merging strategy is: **rebase and merge** ; we do not want a merge commit.
+Note that the target branch \(`develop` or `master`\) will be write-protected, _i.e._ no one is allowed to push to it. Hence you will need to use the forge UI to merge your PR once all tests are green and your changes have been approved. Our PR merging strategy is: **rebase and merge** ; we do not want a merge commit.
 
