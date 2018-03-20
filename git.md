@@ -103,10 +103,12 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
 1. Create a new branch named: `prepare-4.18.1`,
 
 2. Bump the release number in the appropriate file, _i.e._ for python projects, the `setup.cfg`  \(or `__init__.py`, depending on the way you handle your package version\) and/or `package.json` for node-based projects,
+
 3. Update the project's `Changelog` following the [keepachangelog](https://keepachangelog.com/en/0.3.0/) recommandations,
 4. Commit your changes with a standard message title like: `Bump release to 4.18.1`,
 
 5. Open a pull or merge request depending on the current forge of the project,
+
 6. Wait for an approval from your peers,
 7. Merge your pull or merge request,
 
@@ -128,7 +130,7 @@ git branch -a --contains ${tag_commit} | grep ${TARGET_BRANCH}
 
 # Check that the current tag (vX.Y.Z) matches the release number in
 # setup.cfg (X.Y.Z)
-grep $(echo $CIRCLE_TAG | sed 's/^v//') setup.cfg
+grep "$(echo $CIRCLE_TAG | sed 's/^v/version = /')" setup.cfg
 ```
 
 In this example script `$CIRCLE_TAG` is an environment variable defined by the contious integration platform \(CircleCI in this case\) with the pushed tag value, and, `$TARGET BRANCH` is the `Git` branch that should have been tagged \(e.g. the `master` branch\).
