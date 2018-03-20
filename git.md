@@ -96,3 +96,40 @@ Last but not least, a code review should not take more than half an hour per PR 
 
 Note that the target branch \(`develop` or `master`\) will be write-protected, _i.e._ no one is allowed to push to it. Hence you will need to use the forge UI to merge your PR once all tests are green and your changes have been approved. Our PR merging strategy is: **rebase and merge** ; we do not want a merge commit.
 
+## Releasing new software version
+
+Whatever the language you are using on a FUN project, cooking a new release \(_e.g._ `4.18.1`\) should follow a standard procedure described below:
+
+1. Create a new branch named: `prepare-4.18.1`,
+
+2. Bump the release number in the appropriate file, _i.e._ for python projects, the `setup.cfg`  \(or `__init__.py`, depending on the way you handle your package version\) and/or `package.json` for node-based projects,
+3. Update the project's `Changelog` following the [keepachangelog](https://keepachangelog.com/en/0.3.0/) recommandations,
+4. Commit your changes with a standard message title like: `Bump release to 4.18.1`,
+
+5. Open a pull or merge request depending on the current forge of the project,
+6. Wait for an approval from your peers,
+7. Merge your pull or merge request,
+
+8. Checkout and pull changes from the `master` branch,
+
+9. Tag & push your commit: `git tag v4.18.1 && git push origin --tags`
+
+### Checking project tags consistency
+
+As we are only Humans, we are error-prone _per se_. To avoid tagging consistency errors, we recommand to integrate the following tests in the project's continuous integration workflow before publishing a new release:
+
+```bash
+# Get current tag corresponding commit ID
+tag_commit=$(git rev-list -n 1 $CIRCLE_TAG)
+
+# Check that the tag refer to a commit in the $TARGET_BRANCH (e.g.
+# the master branch)
+git branch -a --contains ${tag_commit} | grep ${TARGET_BRANCH}
+
+# Check that the current tag (vX.Y.Z) matches the release number in
+# setup.cfg (X.Y.Z)
+grep $(echo $CIRCLE_TAG | sed 's/^v//') setup.cfg
+```
+
+In this example script `$CIRCLE_TAG` is an environment variable defined by the contious integration platform \(CircleCI in this case\) with the pushed tag value, and, `$TARGET BRANCH` is the `Git` branch that should have been tagged \(e.g. the `master` branch\).
+
