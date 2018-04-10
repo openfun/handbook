@@ -22,15 +22,7 @@ We follow an emoji-driven commit message format adapted from [Angular guidelines
 <footer>
 ```
 
-Where **type** must be one of the following:
-
-* 👷‍♀ \(_aka_ **build**\): changes that affect the build system or external dependencies \(example scopes: pip, npm, docker\)
-* ⛑ \(_aka_ **ci**\): changes to our CI configuration files and scripts \(example scopes: Circle, GitLab\)
-* 📝 \(_aka_ **docs**\): documentation only changes
-* 😎 \(_aka_ **feat**\): a new feature
-* ✌️ \(_aka_ **fix**\): a bug fix
-* 👩‍🏭 \(_aka_ **refactor**\): a code change that neither fixes a bug nor adds a feature
-* 👩‍🎨 \(_aka_ **style**\): changes that do not affect the meaning of the code \(white-space, formatting, missing semi-colons, etc.\)
+Where **type** must be an emoji chosen from the [gitmoji guide](https://gitmoji.carloscuesta.me/).
 
 And the **scope** should point to the django application or stack component that may be affected, _e.g._:
 
