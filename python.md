@@ -125,11 +125,14 @@ from .forms import (
 from .utils import export_bars, export_foos
 ```
 
+## Test files
 
+In Django, we want good names for our test files: they should bear the name of the Python module being tested (followed by the snakecased name of the class or method if necessary), from the more generic to the more specific.
 
+Some examples of good names for test files:
 
-
-
-
-
-
+```
+test_forms_contact.py
+test_models_user_send_welcome_email.py
+test_forms_fields_datetimerange.py
+```
