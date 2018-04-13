@@ -15,7 +15,7 @@ We tend to favor low granularity-but-consistent commits to a long series of comm
 We follow an emoji-driven commit message format adapted from [Angular guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines). A typical commit message should look like:
 
 ```
-<type>(<scope>): <subject>
+<type>(<scope>) <subject>
 <BLANK LINE>
 <body>
 <BLANK LINE>
