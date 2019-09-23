@@ -112,7 +112,7 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
 
 ### Checking project tags consistency
 
-As we are only Humans, we are error-prone _per se_. To avoid tagging consistency errors, we recommand to integrate the following tests in the project's continuous integration workflow before publishing a new release:
+As we are only Humans, we are error-prone _per se_. To avoid tagging consistency errors, we recommend to integrate the following tests in the project's continuous integration workflow before publishing a new release:
 
 ```bash
 # Get current tag corresponding commit ID
