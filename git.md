@@ -30,13 +30,58 @@ And the **scope** should point to the django application or stack component that
 * apps:core
 * plugins:foo
 
+#### Subject
+
 The **subject** contains succinct description of the change:
 
 * use the imperative, present tense: "change" not "changed" nor "changes"
 * don't capitalize first letter
 * no dot \(.\) at the end
 
+#### Body
+
 Just as in the subject, use the imperative, present tense for the **body**: "change" not "changed" nor "changes". The body should include the motivation for the change and contrast this with the previous behavior.
+
+In other words, you should explain WHY you do what you do, and what was the context
+that led you to do it the way you do it. It should not be a list of the things
+you change, because that's what `git diff` is here for.
+
+Try to see the commit message as a "brain dump" of the state of your mind at the
+moment of committing the changes.
+
+You can also imagine someone angry chasing you in 6 months and asking:
+
+> Why on earth did you do this ??
+
+You surely wouldn't answer with a list of what you did. You would try to explain and
+justify what you did 6 months ago. The problem is that, at that
+time, you will have forgotten about all these details... and your changes may
+be misunderstood. This may lead to tensions and criticism on the quality of your work.
+Worse, someone may revert an important change for lack of understanding the implications.
+Ironically, the angry person will most probably be... the future you!
+
+Here is an example of a good versus a bad commit body:
+
+💩 Bad
+
+```
+Deactivate the French language in production and activate it in development.
+```
+
+❤️ Good
+
+```
+Translators are still working on the French language, which will not
+be ready before we go live on 2020/09/01. We must hide it in production
+so that users don't see it while it is incomplete. However, we need to
+keep it activated in the development environment so that the language
+selector is displayed to the developper, and also because the demo site
+that we use for develoment assumes that french and english are both
+activated. The demo site generator would fail if we deactivated French
+in development.
+```
+
+#### Footer
 
 The **footer** should contain any information about breaking changes and is also the place to reference GitHub/GitLab issues that this commit closes.
 
