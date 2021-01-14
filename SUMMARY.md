@@ -4,4 +4,4 @@
 * [FUN with Git](git.md)
 * [FUN with Python](python.md)
 * [FUN with Docker](docker.md)
-
+* [FUN with Slack](slack.md)
