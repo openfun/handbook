@@ -143,7 +143,24 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
 
 3. Update the project's `Changelog` following the [keepachangelog](https://keepachangelog.com/en/0.3.0/) recommandations,
 
-4. Commit your changes with a standard message title like: `Bump release to 4.18.1`,
+4. Commit your changes with a structured message:
+
+- add a title including the version of the release and respecting the above described format using the 🔖 release emoji,
+- paste in the body all changes from the changelog concerned by this release, removing only the markdown tags and making sure that lines are shorter than 74 characters.
+
+```
+🔖(minor) Bump release to 4.18.0
+
+Added:
+
+ - Implement base CLI commands (list, extract, fetch & push) for supported
+ backends
+ - Support for ElasticSearch database backend
+ 
+Changed:
+
+ - Replace LDP storage backend by FS storage backend
+```
 
 5. Open a pull or merge request depending on the current forge of the project,
 
