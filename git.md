@@ -145,22 +145,22 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
 
 4. Commit your changes with a structured message:
 
-- add a title including the version of the release and respecting the above described format using the 🔖 release emoji,
-- paste in the body all changes from the changelog concerned by this release, removing only the markdown tags and making sure that lines are shorter than 74 characters.
+    - add a title including the version of the release and respecting the above described format using the 🔖 release emoji,
+    - paste in the body all changes from the changelog concerned by this release, removing only the markdown tags and making sure that lines are shorter than 74 characters.
 
-```
-🔖(minor) Bump release to 4.18.0
+        ```
+        🔖(minor) Bump release to 4.18.0
 
-Added:
+        Added:
 
- - Implement base CLI commands (list, extract, fetch & push) for supported
- backends
- - Support for ElasticSearch database backend
- 
-Changed:
+        - Implement base CLI commands (list, extract, fetch & push) for supported
+        backends
+        - Support for ElasticSearch database backend
+        
+        Changed:
 
- - Replace LDP storage backend by FS storage backend
-```
+        - Replace LDP storage backend by FS storage backend
+        ```
 
 5. Open a pull or merge request depending on the current forge of the project,
 
