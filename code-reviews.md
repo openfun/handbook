@@ -47,7 +47,7 @@ of assessing it; issuing an opinion.
 
 Here are 5 good practices to adopt that may be beneficial for a code review.
 
-1. Engage conversation for clarification 💬
+### Engage conversation for clarification 💬
 
 The point here is to question what has been produced.  It is not because the
 reviewer has difficulty understanding the code that the code quality is bad.
@@ -63,27 +63,27 @@ suggest alternatives that could optimize what has been done.
 > Doing it like this could solve the problem in only one step. What do you think
 > of it? (WDYT?)
 
-2. Have a pragmatic state of mind ✔️
+### Have a pragmatic state of mind ✔️
 
 It is important to keep in mind that what is provided is functional.  External
 parameters can force the developer not to provide optimal code.  He/she is not
 omniscient and learns from team work too.  Having a functional code is the
 paramount issue (considering that good practices of coding are respected).
 
-3. Review as often as possible 🕙
+### Review as often as possible 🕙
 
 Code reviews will be relevant and beneficial if the exercise is frequent within
 the team.  It is not the business of a few members but of each one of them
 because such exercise contribute to the good integration and involvement of
 everyone.
 
-4. Focus on the main 🧠
+### Focus on the main 🧠
 
 A code review should not be overthought.  The reviewer should focus on the
 algorithm and the code.  With a problem comes a solution.  It must be possible
 to be synthetic and have a global vision of what is in question.
 
-5. Communicate positively and with consideration 😃
+### Communicate positively and with consideration 😃
 
 Finally, the most important is the way to communicate during a review.  We want
 to keep a warm and team spirit in the perspective of celebrating and encouraging
@@ -92,6 +92,6 @@ and enthusiastic comments are always written, don't hesitate on using gifs and
 emojis in PR (or MR) conversations. 😉
 
 
-### Reference
+## References
 
 * [On Code Reviews](https://tailordev.fr/blog/2017/02/03/on-code-reviews/)
