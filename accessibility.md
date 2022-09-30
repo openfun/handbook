@@ -12,7 +12,7 @@ Table of contents:
 
 These are a few accessibility (a11y) related things to keep in mind when touching HTML/CSS/JS code.
 
-Note that these are not "accessibility basics", since by the looks of the code in richie, they are already well-known within the team. These are things to know to go the extra step when caring about a11y, that I most often noticed while contributing on Richie in 2022.
+Note that these are not "accessibility basics" but things to know to go the extra step when caring about a11y, that are often noticed on our code bases.
 
 Of course not everything is set in stone: there are always exceptions related to each use case, and often multiple ways to solve a11y issues. So, remember this is not about unconditionally following rules. It's about making sure everyone has access to all information on your website, and can interact with it. So, when in doubt: test! Accessibility panels in browser devtools can help as a first checkup, but the best is to actually use screen readers:
 
@@ -22,7 +22,7 @@ Of course not everything is set in stone: there are always exceptions related to
 
 ## Colors
 
-In terms of colors, fun-mooc already respects RGAA rules pretty well: it is understood that a minimum contrast ratio between text color and background color must be respected.
+In terms of colors, we should respect RGAA rules: it is understood that a minimum contrast ratio between text color and background color must be respected.
 
 However there is not only this rule to know about colors. We can mention one in particular to pay attention to.
 
@@ -40,9 +40,9 @@ In this case, the border of the input should have a contrast ratio of at least *
 
 Another example: a progress bar. This is a non-interactive element, but it carries information with its shape and colors. There is a background color, and a foreground color that takes up more or less space to indicate the progress.
 
-In this case, if the two colors touch each other and the contrast ratio between the two is less than 3:1, some people will not see the difference, and therefore will not get the information.
+In this case, if the two colors touch each other and the contrast ratio between the two is less than **3:1**, some people will not see the difference, and therefore will not get the information.
 
-If you don't want to change the colors, you can decide to add a line between the two to delimit them. This line should have a minimum ratio of 3:1 with each of the two colors.
+If you don't want to change the colors, you can decide to add a line between the two to delimit them. This line should have a minimum ratio of **3:1** with each of the two colors.
 
 Note that if the progress is described as text in addition to the bar (like, "60%" written next to the bar), it's not mandatory to make the bar colors accessible. Because the information itself is now accessible through the text.
 
@@ -78,7 +78,7 @@ The alternative indicates the meaning of the image, not its visual description.
 Examples:
 
 - a link with a facebook logo, made to share a page on facebook, will have "Share on Facebook" as an alternative, not "Blue Facebook logo".
-- the link in the header of the site with the Fun Mooc logo will have "Home - Fun Mooc" as a textual alternative, not "Fun Mooc logo".
+- the link in the header of the site with a FUN logo will have "Home - FUN" as a textual alternative, not "FUN logo".
 - a non-interactive area composed of "[logo representing a building] [name of establishment]" will have a textual alternative on the logo indicating "Establishment", not "Image of a two-story building". This is to give context to the screen reader user that the text coming next is indeed the name of an establishment.
 
 ### Technically, how to do this?
@@ -88,7 +88,7 @@ Examples:
 - when using an `img` tag, the straightforward way to set up the alternative is to use the `alt` attribute. You can repeat it in the `title` attribute if you wish to have some sort of tooltip. Note that this attribute is generally not announced by a screen reader though. It's only here only for mouse users, if we consider that the image itself deserves a textual precision. That said, in this case, we can also ask the question of displaying text next to it at all times, as keyboard-only or smartphone users will not be able to display the `title` text.
 - for an interactive element (`a`, `button`) having an image as their unique child, one can also decide to define the alternative on the `a`/`button` tag via an `aria-label` rather than on the image itself. This can be useful if for some technical reason during development, defining the `alt` is more complicated than adding an attribute on the interactive element.
 - for an `svg` tag, you have to define a `role="img"` attribute and add the alternative via an `aria-label` attribute. It is also necessary to repeat the alternative in a `<title>` tag in the svg, for better support of older screen readers.
-- It is also OK to define images/svg without alternative and, next to it, have a screen readers-only text (via the `offscreen` class in richie for example).
+- It is also OK to define images/svg without alternative and, next to it, have a screen readers-only text (see the `offscreen` class for [example in richie](https://github.com/openfun/richie/blob/917c9fb703ea6082c8762b2fbc043167aed473b2/src/frontend/scss/generic/_accessibility.scss#L4)).
 
 _Commit examples in richie: [32006c4b](https://github.com/openfun/richie/commit/32006c4b1d4c39d65e0b7efe6f18a4e1c5962387), [9b550601](https://github.com/openfun/richie/commit/9b5506016301bcc5b9b1773e178dde9238f08c91), [68065c92](https://github.com/openfun/richie/commit/68065c9280f475f2abfb12777b4ab113786c591c)_
 
