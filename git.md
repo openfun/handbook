@@ -22,7 +22,9 @@ We follow an emoji-driven commit message format adapted from [Angular guidelines
 <footer>
 ```
 
-Where **type** must be an emoji chosen from the [gitmoji guide](https://gitmoji.carloscuesta.me/).
+### Type, scope and subject
+
+Where **type** must be an emoji unicode character (e.g. 🎉 **and not** `:tada:`) chosen from the [gitmoji guide](https://gitmoji.carloscuesta.me/).
 
 And the **scope** should point to the django application or stack component that may be affected, _e.g._:
 
@@ -30,13 +32,30 @@ And the **scope** should point to the django application or stack component that
 * apps:core
 * plugins:foo
 
-#### Subject
-
 The **subject** contains succinct description of the change:
 
 * use the imperative, present tense: "change" not "changed" nor "changes"
 * don't capitalize first letter
 * no dot \(.\) at the end
+
+
+💩 Bad
+
+```
+:sparkles:(auth) add support for HTTP basic auth
+✨(Auth.py) add support for HTTP basic auth
+✨(auth) add support for HTTP basic auth.
+✨(auth) Add support for HTTP basic auth
+✨(auth)add support for HTTP basic auth
+✨(auth) added support for HTTP basic auth
+```
+
+❤️ Good
+
+```
+✨(auth) add support for HTTP basic auth
+```
+
 
 #### Body
 
@@ -86,6 +105,33 @@ in development.
 The **footer** should contain any information about breaking changes and is also the place to reference GitHub/GitLab issues that this commit closes.
 
 Breaking changes should start with the word `BREAKING CHANGE`: with a space or two newlines. The rest of the commit message is then used for this.
+
+
+
+### Git `commit-msg` hook
+
+Commits are usually checked in the project CI, but you can install [gitlint](https://jorisroovers.com/gitlint/latest/commit_hooks/#commit-msg-hook) as a git `commit-msg` hook so that gitlint checks your commit messages locally after each commit.
+
+For this, install the `gitlint` package globally using `pip`:
+```
+pip install gitlint
+```
+
+Install the `commit-msg` hook:
+```
+gitlint install-hook
+```
+
+Note that `gitlint` cannot work together with an existing hook. If you already have a `.git/hooks/commit-msg` file in your local repository, `gitlint` will refuse to install the `commit-msg` hook.
+
+`gitlint` should now be runned locally for each commits you make.
+
+If you want to manually trigger `gitlint` for your last commit message, use the following command:
+```
+gitlint --msg-filename .git/COMMIT_EDITMSG
+```
+
+
 
 ## Git workflows
 
