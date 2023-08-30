@@ -195,7 +195,7 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
     - paste in the body all changes from the changelog concerned by this release, removing only the markdown tags and making sure that lines are shorter than 74 characters.
 
         ```
-        🔖(minor) Bump release to 4.18.0
+        🔖(minor) bump release to 4.18.0
 
         Added:
 
