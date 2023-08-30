@@ -218,6 +218,10 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
 
 9. Tag & push your commit: `git tag v4.18.1 && git push origin --tags`
 
+10. Unless the CI has already taken care of it (check on the Circle CI config if there is a release job defined), manually release your version on GitHub.
+
+11. Ensure your release is published on the package index.
+
 ### Checking project tags consistency
 
 As we are only Humans, we are error-prone _per se_. To avoid tagging consistency errors, we recommend to integrate the following tests in the project's continuous integration workflow before publishing a new release:
