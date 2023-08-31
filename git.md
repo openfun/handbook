@@ -195,7 +195,7 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
     - paste in the body all changes from the changelog concerned by this release, removing only the markdown tags and making sure that lines are shorter than 74 characters.
 
         ```
-        🔖(minor) Bump release to 4.18.0
+        🔖(minor) bump release to 4.18.0
 
         Added:
 
@@ -217,6 +217,10 @@ Whatever the language you are using on a FUN project, cooking a new release \(_e
 8. Checkout and pull changes from the `master` branch,
 
 9. Tag & push your commit: `git tag v4.18.1 && git push origin --tags`
+
+10. Unless the CI has already taken care of it (check on the Circle CI config if there is a release job defined), manually release your version on GitHub.
+
+11. Ensure your release is published on the package index.
 
 ### Checking project tags consistency
 
